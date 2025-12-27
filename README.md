@@ -3,4 +3,5 @@
 + Project setup ✅done
 + Create player and enemy ✅ done
 + Move character with Event listeners ✅ done
-+ attacks
++ attacks ✅ done
++ Health bar
