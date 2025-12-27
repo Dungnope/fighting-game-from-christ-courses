@@ -136,17 +136,36 @@ const animate = () => {
 
     //detect collision
     /* Horizontal */
-    if(player.attackBox.position.x + player.attackBox.width >= enemy.position.x && //for player
-        player.attackBox.position.x <= enemy.position.x + enemy.width && //for enemy
-        player.attackBox.position.y + player.attackBox.height >= enemy.position.y &&
-        player.attackBox.position.y <= enemy.position.y + enemy.height &&
-        player.isAttacking
-
+    //for player
+    if(
+        rectagularCollision({
+            rectagle1: player,
+            rectangle2: enemy,
+        }) && player.isAttacking
     ) {
         player.isAttacking = false;
-        console.log("augh");
+        console.log("huwaw");
     }
 
+    //for enemy collision, very clever in this step
+    if(
+        rectagularCollision({
+            rectagle1: enemy,
+            rectangle2: player,
+        }) && enemy.isAttacking
+    ) {
+        enemy.isAttacking = false;
+        console.log("haha");
+    }
+}
+
+function rectagularCollision({rectagle1, rectangle2}){
+    return(
+        rectagle1.attackBox.position.x + rectagle1.attackBox.width >= rectangle2.position.x && //for rectagle1
+        rectagle1.attackBox.position.x <= rectangle2.position.x + rectangle2.width && //for rectangle2
+        rectagle1.attackBox.position.y + rectagle1.attackBox.height >= rectangle2.position.y &&
+        rectagle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
+    )
 }
 
 animate();
