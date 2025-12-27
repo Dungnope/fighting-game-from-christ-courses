@@ -31,10 +31,10 @@ class Sprite {
         c.fillRect(this.position.x, this.position.y, this.width, this.height);
 
         //attack box
-        // if(this.isAttacking){
+        if(this.isAttacking){
             c.fillStyle = 'gray';
             c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-        // }
+        }
     }
 
     update() {
@@ -144,7 +144,7 @@ const animate = () => {
         }) && player.isAttacking
     ) {
         player.isAttacking = false;
-        console.log("huwaw");
+        console.log("splash enemy");
     }
 
     //for enemy collision, very clever in this step
@@ -155,7 +155,7 @@ const animate = () => {
         }) && enemy.isAttacking
     ) {
         enemy.isAttacking = false;
-        console.log("haha");
+        console.log("enemy punch player");
     }
 }
 
@@ -198,6 +198,9 @@ window.addEventListener("keydown", (e) => {
             break;
         case 'ArrowUp':
             enemy.velocity.y = -10;
+            break;
+        case 'ArrowDown':
+            enemy.attack();
             break;
     }
 })
