@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 const gravity = 0.4;
-canvas.width = 640;
-canvas.height = 480;
+canvas.width = 1024;
+canvas.height = 640;
 c.fillRect(0, 0, canvas.width, canvas.height);
 
 class Sprite {

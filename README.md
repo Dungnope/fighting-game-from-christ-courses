@@ -4,4 +4,4 @@
 + Create player and enemy ✅ done
 + Move character with Event listeners ✅ done
 + attacks ✅ done
-+ Health bar
++ Health bar 
