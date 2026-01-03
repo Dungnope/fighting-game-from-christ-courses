@@ -15,11 +15,17 @@
     <div style="position: relative; display: inline-block;">
         <div style="position: absolute; padding: 20px 0 0 0; display: flex; width: 100%; align-items: center; justify-content: center; padding: 20px;">
             <!--Player health-->
-            <div style="background-color: rgb(161, 25, 25); height: 40px; width: 100%;"></div>
+            <div style="background-color: rgb(161, 25, 25); height: 40px; width: 100%; position: relative; transform: rotate(180deg);">
+                <div id="playerHealth" style="background-color: rgb(44, 221, 234); height: 40px; width: 100%; position: absolute;"></div>
+            </div>
+            
             <!--Timer-->
-            <div style="background-color: blue; width: 80px; height: 80px; flex-shrink: 0;"></div>
+            <div style="background-color: blue; width: 100px; height: 100px; flex-shrink: 0;"></div>
+
             <!--Enemy health-->
-            <div style="background-color: rgb(161, 25, 25); height: 40px; width: 100%"></div>
+            <div  style="background-color: rgb(161, 25, 25); height: 40px; width: 100%; position: relative;">
+                <div id="enemyHealth" style="background-color: rgb(44, 221, 234); height: 40px; width: 100%; position: absolute;"></div>
+            </div>
         </div>
         <canvas></canvas>
     </div>

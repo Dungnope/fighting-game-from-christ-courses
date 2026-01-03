@@ -24,8 +24,10 @@ class Sprite {
             width: 100,
             height: 50
         }
+        this.health = 100;
     }
 
+    //draw function to show the character and update position
     draw() {
         c.fillStyle = this.color;
         c.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -37,6 +39,7 @@ class Sprite {
         }
     }
 
+    // update position of entity
     update() {
         this.draw();
         this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
@@ -144,18 +147,20 @@ const animate = () => {
         }) && player.isAttacking
     ) {
         player.isAttacking = false;
-        console.log("splash enemy");
+        enemy.health -= 20;
+        document.querySelector("#enemyHealth").style.width = enemy.health + '%';
     }
 
     //for enemy collision, very clever in this step
     if(
-        rectagularCollision({
-            rectagle1: enemy,
-            rectangle2: player,
-        }) && enemy.isAttacking
-    ) {
-        enemy.isAttacking = false;
-        console.log("enemy punch player");
+        rectagularCollision({           
+            rectagle1: enemy,           
+            rectangle2: player,         
+        }) && enemy.isAttacking         
+    ) {         
+        enemy.isAttacking = false;          
+        player.health -= 20;            
+        document.querySelector("#playerHealth").style.width = player.health + '%';          
     }
 }
 
