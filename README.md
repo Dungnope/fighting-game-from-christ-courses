@@ -5,3 +5,4 @@
 + Move character with Event listeners ✅ done
 + attacks ✅ done
 + Health bar ✅ done
++ Timer and counter

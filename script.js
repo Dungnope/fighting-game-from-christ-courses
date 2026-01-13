@@ -153,7 +153,7 @@ const animate = () => {
 
     //for enemy collision, very clever in this step
     if(
-        rectagularCollision({           
+        rectagularCollision({            
             rectagle1: enemy,           
             rectangle2: player,         
         }) && enemy.isAttacking         
@@ -163,6 +163,17 @@ const animate = () => {
         document.querySelector("#playerHealth").style.width = player.health + '%';          
     }
 }
+
+let timer = 10;
+function decreaseTimer(){
+    setTimeout(decreaseTimer, 1000);
+    if(timer > 0) {
+        timer--;
+        document.querySelector("#timer").innerHTML = timer;
+    }
+}
+
+decreaseTimer();
 
 function rectagularCollision({rectagle1, rectangle2}){
     return(
