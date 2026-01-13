@@ -162,14 +162,40 @@ const animate = () => {
         player.health -= 20;            
         document.querySelector("#playerHealth").style.width = player.health + '%';          
     }
+
+    if(enemy.health <= 0 || player.health <= 0){
+        determineWinner(player, enemy, timerId);
+    }
 }
 
-let timer = 10;
+let timer = 60;
+let timerId;
 function decreaseTimer(){
-    setTimeout(decreaseTimer, 1000);
+    timerId = setTimeout(decreaseTimer, 1000);
+    console.log(timerId);
     if(timer > 0) {
         timer--;
         document.querySelector("#timer").innerHTML = timer;
+    }
+
+    if(timer === 0){
+        determineWinner(player, enemy, timerId);
+    }
+}
+
+function determineWinner(player, enemy, timerId){
+    clearTimeout(timerId);
+    document.querySelector("#displayText").style.display = 'flex';
+    if(player.health === enemy.health){
+        document.querySelector("#displayText").innerHTML = 'Tie';
+    }
+     
+    else if(player.health > enemy.health){
+        document.querySelector("#displayText").innerHTML = 'Player1 wins';
+    }
+     
+    else if(player.health < enemy.health){
+        document.querySelector("#displayText").innerHTML = 'Player2 wins';
     }
 }
 

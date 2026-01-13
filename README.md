@@ -5,4 +5,7 @@
 + Move character with Event listeners ✅ done
 + attacks ✅ done
 + Health bar ✅ done
-+ Timer and counter
++ Timer and game over ✅ done 
+
+# Sprites and animation
++ Background sprite 
